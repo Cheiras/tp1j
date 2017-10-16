@@ -66,6 +66,10 @@ public class AlgoBay {
 		nuevoCupon.setPorcentaje(unPorcentaje);
 		return nuevoCupon;
 	}
+	
+	public void agregarCuponEnCompra(Cupon unCupon, Compra unaCompra){
+		unaCompra.setCupon(unCupon);
+	}
 		
 	public double getPrecioTotalDe (Compra unaCompra){
 		return unaCompra.getPrecioTotal();
