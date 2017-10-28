@@ -13,7 +13,16 @@ public class AlgoBay {
 		if(precio < 0){
 			throw new PrecioNegativoError("El precio del producto no puede ser negativo");
 		}
+		
 		Producto producto = new Producto (nombre, precio);
+		for (int i = 0; i < listaProductos.size(); i++) {
+			Producto productoAux = listaProductos.get(i);
+			if(productoAux.getNombre() == nombre){
+				listaProductos.remove(productoAux);
+				cantidadDeProductos--;
+			}
+		}
+		listaProductos.add(producto);
 		cantidadDeProductos++;
 		return producto;
 	}
