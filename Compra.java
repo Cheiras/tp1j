@@ -10,23 +10,22 @@ public class Compra {
 	private Cupon cupon = null;
 	
 	public void añadir (Producto unProducto){
-		listaProductos.add(unProducto);
+		listaProductos.add(unProducto);	
 	}
-	
 	public void calcularPrecioTotal(){
 		for(Producto producto : listaProductos){
 			precioTotal = precioTotal + producto.getPrecio();
 		}
 		if (garantia){
 			Garantia nuevaGarantia = new Garantia();
-			precioTotal = nuevaGarantia.agregarPrecioGarantia(precioTotal);			
+			precioTotal = nuevaGarantia.modificarPrecio(precioTotal);			
 		}
 		if (envio){
 			Envio nuevoEnvio = new Envio();
-			precioTotal = nuevoEnvio.agregarPrecioEnvio(precioTotal);
+			precioTotal = nuevoEnvio.modificarPrecio(precioTotal);
 		}
 		if (cupon != null){
-			precioTotal = cupon.calcularNuevoPrecio(precioTotal);
+			precioTotal = cupon.modificarPrecio(precioTotal);
 		}
 	}
 	
@@ -54,6 +53,7 @@ public class Compra {
 	}
 
 	public double getPrecioTotal() {
+		calcularPrecioTotal();
 		return precioTotal;
 	}
 

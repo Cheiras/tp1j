@@ -71,8 +71,7 @@ public class AlgoBay {
 		if(unPorcentaje < 0 || unPorcentaje > 100){
 			throw new PorcentajeFueraDeRangoError("El porcentaje del cupón debe estar entre 0 y 100");
 		}
-		Cupon nuevoCupon = new Cupon();
-		nuevoCupon.setPorcentaje(unPorcentaje);
+		Cupon nuevoCupon = new Cupon(unPorcentaje);
 		return nuevoCupon;
 	}
 	
